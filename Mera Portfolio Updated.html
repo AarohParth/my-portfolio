@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaroh Parth Asthana - Mechanical Engineer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light gray text */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            color: #cbd5e0; /* Lighter text for titles */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60%;
+            height: 3px;
+            background-color: #6366f1; /* Indigo underline */
+            border-radius: 9999px;
+        }
+
+        /* Animation styles for scroll-triggered effects */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            /* Add a slight blur effect for futuristic feel */
+            filter: blur(2px);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Staggered animation delays */
+        .animate-on-scroll[data-delay="1"] { transition-delay: 0.1s; }
+        .animate-on-scroll[data-delay="2"] { transition-delay: 0.2s; }
+        .animate-on-scroll[data-delay="3"] { transition-delay: 0.3s; }
+        .animate-on-scroll[data-delay="4"] { transition-delay: 0.4s; }
+        .animate-on-scroll[data-delay="5"] { transition-delay: 0.5s; }
+        .animate-on-scroll[data-delay="6"] { transition-delay: 0.6s; }
+        .animate-on-scroll[data-delay="7"] { transition-delay: 0.7s; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12 fixed w-full z-10 rounded-b-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition duration-300 ease-in-out">Aaroh Parth Asthana</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">Skills</a>
+                <a href="#experience" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">Experience</a>
+                <a href="#projects" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">Projects</a>
+                <a href="#achievements" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">Achievements</a>
+                <a href="#contact" class="text-gray-300 hover:text-indigo-400 transition duration-300 ease-in-out font-medium">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-20 flex flex-col items-center justify-center space-y-6">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-300 hover:text-indigo-400 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="#about" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a href="#skills" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+            <a href="#experience" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Experience</a>
+            <a href="#projects" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
+            <a href="#achievements" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Achievements</a>
+            <a href="#contact" class="text-3xl text-gray-100 hover:text-indigo-400 transition duration-300 ease-in-out font-medium" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-20 md:py-32 text-center rounded-b-xl shadow-lg">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
+                    <div class="mb-8 md:mb-0">
+                        <!-- Your Photo - Adjusted size to w-64 h-64 for a larger circle -->
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQHIQHqmIlPd8A/profile-displayphoto-shrink_800_800/B56ZU.MrOdGsAg-/0/1740505266037?e=1758153600&v=beta&t=lVCgdByE5JOnrfZTyRtMUYEEFlQcIRObbufhvwsjeS4" alt="Aaroh Parth Asthana's Profile Photo" class="rounded-full w-64 h-64 object-cover border-4 border-indigo-400 shadow-lg mx-auto md:mx-0">
+                    </div>
+                    <div class="max-w-2xl">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">Hi, I'm <span class="text-indigo-300">Aaroh Parth Asthana</span>!</h1>
+                        <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up delay-200">A passionate Mechanical Engineer specializing in Design, Simulation, and Manufacturing. I thrive on solving complex engineering challenges and creating innovative solutions.</p>
+                        <a href="#projects" class="bg-indigo-600 text-white hover:bg-indigo-700 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:scale-105 inline-block animate-fade-in-up delay-400">View My Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-16 md:py-24 bg-gray-800 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6 animate-on-scroll">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">About Me</h2>
+                <div class="text-lg leading-relaxed text-gray-300 space-y-6 animate-on-scroll" data-delay="1">
+                    <p>I am Aaroh Parth Asthana, a B.Tech Mechanical Engineering student (2021-2025) from MMMUT, Gorakhpur. My academic journey has provided me with a strong foundation in core mechanical engineering principles, complemented by practical experience in design, simulation, and manufacturing.</p>
+                    <p>My passion lies in 3-D Designing and Modelling, and advanced simulations using tools like Fusion 360, ANSYS SpceClaim, ANSYS Fluent, LS-DYNA, Explicit Dynamics, Static Structural & Multiphysics. I have gained hands-on experience through internships at the Defence Research & Development Organisation (DRDO) and Hindalco Industries Ltd., where I contributed to projects involving cryocooler design, CFD analysis, and manufacturing operations.</p>
+                    <p>Beyond academics and professional pursuits, I have a keen interest in Simulations, 3-D Printing, Automation in Machines, Rocket Propulsion Systems, and Renewable Energy Systems. I am dedicated to continuous learning and applying engineering knowledge to create impactful and efficient solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 bg-gray-900 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">My Skills</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Technical Skills -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="1">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">Technical Skills</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>ANSYS (Fluent, LS-DYNA, Explicit Dynamics, Static Structural & Multiphysics)</li>
+                            <li>Fusion 360</li>
+                            <li>SolidWorks</li>
+                            <li>Sketchup</li>
+                            <li>Python</li>
+                            <li>HTML</li>
+                            <li>AutoCAD</li>
+                            <li>MS Office</li>
+                        </ul>
+                    </div>
+                    <!-- Curriculum Skills -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="2">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">Curriculum Expertise</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>3-D Designing and Modelling</li>
+                            <li>Simulation (Fluent, LS-DYNA, Explicit Dynamics, Static Structural & Multiphysics)</li>
+                            <li>Thermodynamics & Heat Transfer</li>
+                            <li>Fluid Mechanics</li>
+                            <li>Mechanics of Materials</li>
+                        </ul>
+                    </div>
+                    <!-- Interests -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="3">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">Interests</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Simulations</li>
+                            <li>3-D Printing</li>
+                            <li>Automation in Machines</li>
+                            <li>Rocket Propulsion Systems, Turbojet and Ramjet Engines</li>
+                            <li>Bio Mimicry in Designs</li>
+                            <li>Additive Manufacturing Technologies</li>
+                            <li>Thermocouple Elements (Peltier Tiles)</li>
+                            <li>UAVs (Fixed-wing and Rotary-wing Drones)</li>
+                            <li>Renewable Energy Systems, Nuclear Energy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-16 md:py-24 bg-gray-800 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">Internship & Experience</h2>
+                <div class="space-y-10">
+                    <!-- Hindalco Industries Ltd. -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="1">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Graduate Engineer Trainee</h3>
+                        <p class="text-gray-400 mb-2"><b>Hindalco Industries Ltd. (Aditya Birla Group)</b> | March 2025 - Present (Offer Accepted)</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Selected for the Engineering Leadership Program (ELP) 2025 under Aditya Birla Management Corporation Pvt. Ltd.</li>
+                            <li>Offered a CTC of ₹7.5 LPA with structured career progression, assessment, and retention bonus scheme.</li>
+                            <li>Will be placed in core engineering and manufacturing operations post onboarding.</li>
+                        </ul>
+                    </div>
+                    <!-- DRDO Project Intern -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="2">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Project Intern</h3>
+                        <p class="text-gray-400 mb-2"><b>Defence Research & Development Organisation (DRDO)</b> | 28th June 2024 - 9th August 2024 | 8th January 2025 - 8th May 2025</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Internship at Cryogenics Facility, Solid State Physics Laboratory, New Delhi.</li>
+                            <li>Designed compressor and displacer pistons for a Stirling cryocooler using MATLAB.</li>
+                            <li>Conducted CFD analysis of the regenerator using ANSYS Fluent to study flow and heat transfer.</li>
+                            <li>Computed Reynolds, Prandtl, Nusselt numbers, effectiveness, and system efficiency.</li>
+                            <li>Applied Schmidt analysis to model pressure variation and cooling in the cycle.</li>
+                        </ul>
+                    </div>
+                    <!-- ARK Infosolutions (ANSYS) Inc. -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="3">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Trainee - Application Of ANSYS</h3>
+                        <p class="text-gray-400 mb-2"><b>ARK Infosolutions (ANSYS) Inc.</b> | 23rd April 2024 - 29th April 2024</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Executive Industrial Training Program on Application Of ANSYS.</li>
+                            <li>Created various Models and Performed Mesh Design, External & Internal Flow Simulation using Fluent.</li>
+                            <li>Derived contour mapping of Stress and Deformation on various models using the Static Structural System of ANSYS.</li>
+                            <li>Successfully created an Aerodynamic profile of a train nose using Fluent.</li>
+                        </ul>
+                    </div>
+                    <!-- Indian Railways -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="4">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Summer Intern - Plumbing Work & Mechanical Workshop</h3>
+                        <p class="text-gray-400 mb-2"><b>Indian Railways</b> | 16th June 2023 - 14th July 2023</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Comprehensive study on "Plumbing work in coach water supply and Underslung Water Tank" at Mechanical Workshop, North Eastern Railway, Gorakhpur.</li>
+                            <li>Comprised: Coach Water Supply System, Plumbing Work in Coaches, Bio-Toilets in Railway Coaches (by DRDO).</li>
+                            <li>Performed operations using a wheel lathe. Ascertained skills like Machining, Machine Drawing, and Engineering Drawings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 bg-gray-900 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1: 3D Printing & Topology Optimization of Drone using ANSYS -->
+                    <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="1">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQHWqLu9MoFt_A/feedshare-shrink_2048_1536/B56ZSSiYrFHwAo-/0/1737625277721?e=1755734400&v=beta&t=dsowOoc6vmDUUtBN-K7mZNeumAGm1QSsNqWgGRurTHQ" alt="3D Printed Drone" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-indigo-400 mb-2">3D Printing & Topology Optimization of Drone using ANSYS</h3>
+                            <p class="text-gray-300 mb-4">Designed three drone frames in Fusion 360 and SolidWorks. Conducted comprehensive structural and dynamic analyses using Static Structural and LS-DYNA (ANSYS). Currently performing CFD and Thermal analyses with ANSYS Fluent for aerodynamic performance and thermal management.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">Fusion 360</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">SolidWorks</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">ANSYS</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">LS-DYNA</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">CFD</span>
+                            </div>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-medium inline-flex items-center">
+                                View Details
+                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 10.5L21 14.25m0 0L17.25 18m3.75-3.75H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2: Cryocooler Piston Design & CFD Analysis (from DRDO experience) -->
+                    <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="2">
+                        <img src="https://placehold.co/600x400/374151/9ca3af?text=Cryocooler+Design" alt="Cryocooler Design" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Stirling Cryocooler Design & CFD Analysis</h3>
+                            <p class="text-gray-300 mb-4">Designed compressor and displacer pistons for a Stirling cryocooler using MATLAB. Performed CFD analysis of the regenerator with ANSYS Fluent to study flow and heat transfer, computing key performance indicators.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">MATLAB</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">ANSYS Fluent</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">CFD</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">Thermodynamics</span>
+                            </div>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-medium inline-flex items-center">
+                                View Details
+                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 10.5L21 14.25m0 0L17.25 18m3.75-3.75H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3: Aerodynamic Profile of Train Nose (from ARK Infosolutions experience) -->
+                    <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="3">
+                        <img src="https://placehold.co/600x400/374151/9ca3af?text=Train+Aerodynamics" alt="Train Aerodynamics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Aerodynamic Profile Analysis of Train Nose</h3>
+                            <p class="text-gray-300 mb-4">Successfully created and analyzed an aerodynamic profile for a train nose using ANSYS Fluent. This involved mesh design and external flow simulation to optimize performance.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">ANSYS Fluent</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">CFD</span>
+                                <span class="bg-indigo-700 text-indigo-100 text-sm font-medium px-2.5 py-0.5 rounded-full">Aerodynamics</span>
+                            </div>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-medium inline-flex items-center">
+                                View Details
+                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 10.5L21 14.25m0 0L17.25 18m3.75-3.75H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-16 md:py-24 bg-gray-800 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">Achievements & Certifications</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="1">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Academic & Course Achievements</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Gold Medal (Top 1%) in MOOC in Automation in Manufacturing, IIT Guwahati (Topper in Course)</li>
+                            <li>Silver Medal in MOOC in Product Design and Manufacturing, IIT Kanpur (NPTEL, MoE, Government of India)</li>
+                            <li>Certified in MOOC on Solar Energy Engineering and Technology, IIT Guwahati (NPTEL, MoE, Government of India)</li>
+                            <li>Successful Departmental Presentation and report submission on Bio-Mimicry in Mechanical Designs.</li>
+                            <li>B. Tech (Mechanical Engineering) - 7.19/10.0, MMMUT, Gorakhpur</li>
+                            <li>Class XII (CBSE) - 88%, Oxford Public School</li>
+                            <li>Class X (CBSE) - 94%, G.N. National Public School</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="2">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Competition & Recognition</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Gold Medal from Hon'ble Governor, Uttar Pradesh for excellence in speech competition.</li>
+                            <li>1st Position in Vigilance Awareness Week Quiz, North Eastern Railway, Indian Railways (Awarded by GM, NER) (2022)</li>
+                            <li>1st Position in Vigilance Awareness Week Extempore Competition, North Eastern Railway, Indian Railways (Awarded by GM, NER) (2023)</li>
+                            <li>2nd Position in Debate Competition, Azadi ka Amrit Mahotsav, Govt. of Uttar Pradesh at MMMUT.</li>
+                            <li>Smart India Hackathon 2022, Ministry of Education (Certificate)</li>
+                            <li>13th National Science Olympiad, AIR-8542.</li>
+                            <li>1st International English Olympiad, Provincial Rank-318.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-on-scroll" data-delay="3">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-2">Professional Certifications</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Automation in Manufacturing, IIT Guwahati (Certificate)</li>
+                            <li>Defence Research & Development Organisation (DRDO) (Certificate)</li>
+                            <li>ANSYS Industrial Training Certificate (Certificate)</li>
+                            <li>Product Design and Manufacturing, IIT Kanpur (Certificate)</li>
+                            <li>Solar Energy Engineering and Technology, IIT Guwahati (Certificate)</li>
+                            <li>Training Programme, Indian Space Research Organisation (ISRO) (Certificate)</li>
+                            <li>Technical Training, Mechanical Workshop, N.E. Railway (Certificate)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-900 rounded-xl shadow-md mx-4 md:mx-auto mt-8 max-w-6xl px-6 animate-on-scroll">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-gray-100 mb-8 text-center section-title mx-auto">Get In Touch</h2>
+                <div class="max-w-xl mx-auto text-center text-lg text-gray-300 mb-8 animate-on-scroll" data-delay="1">
+                    <p>I'm always excited to connect with new people and discuss potential collaborations or interesting opportunities. Feel free to reach out!</p>
+                    <p class="mt-4"><strong>Email:</strong> <a href="mailto:aaroparth@gmail.com" class="text-indigo-400 hover:underline">aaroparth@gmail.com</a></p>
+                    <p><strong>Phone:</strong> +91 8400259994</p>
+                </div>
+                <div class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-md animate-on-scroll" data-delay="2">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="your.email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 font-semibold transition duration-300 ease-in-out transform hover:scale-105">Send Message</button>
+                    </form>
+                    <div class="mt-8 text-center text-gray-400">
+                        <p>You can also find me on:</p>
+                        <div class="flex justify-center space-x-6 mt-4">
+                            <a href="https://linkedin.com/in/Aaroh Parth Asthana" target="_blank" class="text-indigo-400 hover:text-indigo-300 transition duration-300 ease-in-out">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.444-2.136 2.939v5.667H9.276V9.283h3.413v1.56c.493-.883 1.637-1.815 3.37-1.815 3.606 0 4.267 2.37 4.267 5.467v6.007zM7.904 6.276c-1.399 0-2.542-1.143-2.542-2.543 0-1.399 1.143-2.542 2.542-2.542 1.4 0 2.542 1.142 2.542 2.542 0 1.4-1.142 2.543-2.542 2.543zm-3.554 14.176H9.276V9.283H4.35v11.17z"></path>
+                                </svg>
+                            </a>
+                            <!-- Assuming a GitHub profile based on typical portfolios, replace with actual if available -->
+                            <a href="https://github.com/yourgithubprofile" target="_blank" class="text-gray-300 hover:text-gray-100 transition duration-300 ease-in-out">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.475.087.687-.206.687-.458 0-.226-.007-.975-.011-1.912-2.783.603-3.367-1.344-3.367-1.344-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.088 2.91.829.091-.645.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.092.39-1.988 1.029-2.688-.103-.253-.446-1.272.097-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.7.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.099 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .254.212.545.695.458C21.133 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-8 rounded-t-lg shadow-inner">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Aaroh Parth Asthana. All rights reserved.</p>
+            <p class="text-sm mt-2">Designed with <span class="text-red-500">&hearts;</span> using Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll animation logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: Unobserve once animated if you don't want it to re-animate on scroll back up
+                        // observer.unobserve(entry.target);
+                    } else {
+                        // Optional: Remove 'is-visible' if you want elements to re-animate when scrolling back into view
+                        // entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, {
+                root: null, // viewport as root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the item is visible
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
